@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <unstable> {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   cleanup = pkgs.writeTextFile {
     name = "cleanup";
     destination = "/bin/cleanup";
@@ -117,19 +111,11 @@ let
       gsettings set $gnome_schema icon-theme "Dracula"
       '';
   };
-
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
-
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  }).defaultNix;
-
 in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      hyprland.nixosModules.default
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -189,11 +175,6 @@ in
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
-  programs.hyprland = {
-    enable = true;
-    package = hyprland.packages.${pkgs.system}.default;
-  };
-
   programs.light.enable = true;
 
   programs = {
@@ -238,7 +219,7 @@ in
       }
     ];
   };
-  
+
   users.defaultUserShell = pkgs.zsh;
   users.users.tortoise = {
     isNormalUser = true;
@@ -252,7 +233,7 @@ in
   environment.shells = with pkgs; [ zsh ];
   environment.systemPackages = with pkgs; [
     # Basic tools
-    vim 
+    vim
     wget
     zsh
     git
@@ -320,7 +301,6 @@ in
     unstable._1password-gui
     unstable.signal-desktop
     unstable.spotify
-    unstable.gh
     darktable
     gimp-with-plugins
   ];
