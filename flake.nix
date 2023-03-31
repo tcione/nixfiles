@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-22.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -12,7 +16,9 @@
       nixpkgs,
       nixpkgs-unstable,
       hyprland,
-  }: let
+      home-manager,
+  }:
+  let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -25,6 +31,16 @@
       };
     };
   in {
+    homeManagerConfig = {
+      sleepy-turtle = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          ./home.nix
+        ];
+      };
+    };
+
     nixosConfigurations = {
       sleepy-turtle = nixpkgs.lib.nixosSystem {
         inherit system;
