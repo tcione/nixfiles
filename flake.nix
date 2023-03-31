@@ -31,16 +31,6 @@
       };
     };
   in {
-    homeManagerConfig = {
-      sleepy-turtle = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [
-          ./home.nix
-        ];
-      };
-    };
-
     nixosConfigurations = {
       sleepy-turtle = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -49,6 +39,13 @@
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           hyprland.nixosModules.default { programs.hyprland.enable = true; }
           ./configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tortoise = {
+              imports = [ ./home.nix ];
+            };
+          }
         ];
       };
     };
