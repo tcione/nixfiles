@@ -238,7 +238,6 @@ in
     zsh
     git
     kitty
-    unstable.neovim
     tmux
     antibody
     direnv
@@ -249,13 +248,6 @@ in
     gcc
     go
     cleanup
-
-    # Language support
-    shellcheck
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.bash-language-server
-    rubyPackages.solargraph
 
     # Desktop
     wofi
