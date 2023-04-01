@@ -6,5 +6,7 @@
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [ unstable.exa ];
+  home.packages = with pkgs; [
+    unstable.exa
+  ];
 }
