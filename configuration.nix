@@ -227,7 +227,6 @@ in
     wget
     zsh
     git
-    kitty
     tmux
     direnv
     gcc
