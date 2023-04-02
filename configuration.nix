@@ -236,7 +236,6 @@ in
     # Desktop
     waybar
     networkmanagerapplet
-    geoclue2
     dbus-hyprland-environment
     swaybg
     grim
@@ -248,10 +247,6 @@ in
     enable-swayidle
     lock-system
     wofi-power-menu
-    # - Notifications
-    dunst
-    glib
-    libnotify
     # - Media
     pavucontrol
     pamixer
