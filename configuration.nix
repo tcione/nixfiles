@@ -237,7 +237,6 @@ in
     wofi
     waybar
     networkmanagerapplet
-    gammastep
     geoclue2
     dbus-hyprland-environment
     swaybg
