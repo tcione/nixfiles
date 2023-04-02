@@ -233,7 +233,6 @@ in
     cleanup
 
     # Desktop
-    waybar
     networkmanagerapplet
     dbus-hyprland-environment
     swaybg

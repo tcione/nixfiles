@@ -140,6 +140,212 @@
     tray = true;
   };
 
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        height = 30;
+        spacing = 4;
+        modules-left = [ "wlr/workspaces" ];
+        modules-center = [];
+        modules-right = [
+          "pulseaudio"
+          "backlight"
+          "network"
+          "cpu"
+          "memory"
+          "temperature"
+          "battery"
+          "clock"
+          "tray"
+        ];
+        "wlr/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+          format = "{name}: {icon}";
+          format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            urgent = "";
+            default = "";
+          };
+        };
+        backlight = {
+          device = "intel_backlight";
+          format = "{percent}% {icon}";
+          format-icons = ["" ""];
+        };
+        tray = {
+          spacing = 10;
+        };
+        clock = {
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%Y-%m-%d}";
+        };
+        cpu = {
+          format = "{usage}% ";
+          tooltip = false;
+          on-click = "kitty --class tuibtm btm";
+        };
+        memory = {
+          format = "{}% ";
+          on-click = "kitty --class tuibtm btm";
+        };
+        temperature = {
+          format = "{temperatureC}°C ";
+        };
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
+          format-alt = "{time} {icon}";
+          format-icons = ["" "" "" "" ""];
+        };
+        network = {
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "";
+          tooltip-format = "{ipaddr}/{cidr} @ {ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = " ⚠";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
+        pulseaudio = {
+          format = "{volume}% {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon}   {format_source}";
+          format-bluetooth-muted = "  {icon}   {format_source}";
+          format-muted = "  {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
+        };
+        "hyprland/window" = {
+          format = "{}";
+          separate-outputs = true;
+        };
+      };
+    };
+    style = ''
+      @define-color base   #1e1e2e;
+      @define-color mantle #181825;
+      @define-color crust  #11111b;
+
+      @define-color text     #cdd6f4;
+      @define-color subtext0 #a6adc8;
+      @define-color subtext1 #bac2de;
+
+      @define-color surface0 #313244;
+      @define-color surface1 #45475a;
+      @define-color surface2 #585b70;
+
+      @define-color overlay0 #6c7086;
+      @define-color overlay1 #7f849c;
+      @define-color overlay2 #9399b2;
+
+      @define-color blue      #89b4fa;
+      @define-color lavender  #b4befe;
+      @define-color sapphire  #74c7ec;
+      @define-color sky       #89dceb;
+      @define-color teal      #94e2d5;
+      @define-color green     #a6e3a1;
+      @define-color yellow    #f9e2af;
+      @define-color peach     #fab387;
+      @define-color maroon    #eba0ac;
+      @define-color red       #f38ba8;
+      @define-color mauve     #cba6f7;
+      @define-color pink      #f5c2e7;
+      @define-color flamingo  #f2cdcd;
+      @define-color rosewater #f5e0dc;
+
+      * {
+          border: none;
+          border-radius: 0;
+          font-family: "Fira Sans";
+          font-size: 14px;
+          min-height: 0;
+      }
+
+      window#waybar {
+          background: none;
+          color: white;
+      }
+
+      #window {
+          font-weight: bold;
+          font-family: "Fira Sans";
+      }
+
+      .modules-left,
+      .modules-right {
+          border-radius: 10px;
+          background: @base;
+          opacity: 0.9;
+          margin: 4px 4px 2px 4px;
+          padding: 8px 12px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      #workspaces button {
+          padding: 0 5px;
+          background: transparent;
+          color: @text;
+      }
+
+      #workspaces button.active {
+          color: @peach;
+      }
+
+      .modules-right label {
+          padding-left: 4px;
+          padding-right: 4px;
+      }
+
+      #tray {
+          margin-left: 8px;
+          padding-left: 8px;
+          padding-right: 8px;
+          border-left: 1px solid @text;
+      }
+
+      #clock {
+          font-weight: bold;
+          padding-left: 8px;
+          padding-right: 8px;
+      }
+
+      #battery.warning {
+          background: none;
+          color: @peach;
+      }
+
+      #battery.critical {
+          background: none;
+          color: @red;
+      }
+
+      #network.disconnected {
+          background: none;
+          color: @red;
+      }
+    '';
+  };
+
   # ========================================
   # == End: DESKTOP
   # ========================================
