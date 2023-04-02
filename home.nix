@@ -14,6 +14,9 @@
 
     spotify
     gimp-with-plugins
+
+    # Desktop
+    wofi
   ];
 
   # ========================================

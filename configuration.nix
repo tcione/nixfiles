@@ -234,7 +234,6 @@ in
     cleanup
 
     # Desktop
-    wofi
     waybar
     networkmanagerapplet
     geoclue2
