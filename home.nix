@@ -5,10 +5,11 @@
   home.homeDirectory = "/home/tortoise";
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
+  programs.zsh.enable = true;
 
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     exa
-    neovim
+    bat
   ];
 
   programs.neovim = {
@@ -18,26 +19,37 @@
     withNodeJs = false;
 
     extraPackages = with pkgs; [
-      unstable.nodePackages.bash-language-server
-      unstable.nodePackages.typescript
-      unstable.nodePackages.typescript-language-server
-      unstable.nodePackages.yaml-language-server
-      unstable.rubyPackages.solargraph
-      unstable.shellcheck
-      unstable.rust-analyzer
-      unstable.rnix-lsp
-      unstable.nil
+      nodePackages.bash-language-server
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.yaml-language-server
+      rubyPackages.solargraph
+      shellcheck
+      rust-analyzer
+      rnix-lsp
+      nil
       gnumake
     ];
 
-    plugins = with pkgs.unstable.vimPlugins; [
-      nvim-treesitter.withAllGrammars
+    plugins = with pkgs.vimPlugins; [
+      {
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = ''
+          require'nvim-treesitter.configs'.setup({
+            highlight = { enable = true }
+          })
+        '';
+      }
 
       # Telescope
       plenary-nvim
       {
         plugin = telescope-nvim;
+        type = "lua";
         config = ''
+
+
           local actions = require('telescope.actions')
           local telescope = require('telescope')
           telescope.load_extension('fzf')
@@ -58,6 +70,7 @@
       # LSP
       {
         plugin = lsp-colors-nvim;
+        type = "lua";
         config = ''
           require("lsp-colors").setup({
             Error = "#db4b4b",
@@ -69,6 +82,7 @@
       }
       {
         plugin = trouble-nvim;
+        type = "lua";
         config = ''
           require("trouble").setup({
             fold_open = "v",
@@ -87,6 +101,7 @@
       }
       {
         plugin = nvim-lspconfig;
+        type = "lua";
         config = ''
           local nvim_lsp = require('lspconfig')
 
@@ -141,7 +156,7 @@
             on_attach = on_lsp_attach,
             capabilities = capabilities,
           })
-          lspconfig.rnix.setup{on_attach=on_attach}
+          nvim_lsp.rnix.setup{on_attach=on_attach}
         '';
       }
 
@@ -151,6 +166,7 @@
       cmp-path
       {
         plugin = nvim-cmp;
+        type = "lua";
         config = ''
           local cmp = require('cmp')
 
@@ -201,7 +217,11 @@
       }
       {
         plugin = catppuccin-nvim;
-        config = "colorscheme captppuccin";
+        type = "lua";
+        config = ''
+          require("catppuccin").setup({})
+          vim.cmd.colorscheme "catppuccin"
+        '';
       }
       {
         plugin = nerdcommenter;
