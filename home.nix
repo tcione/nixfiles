@@ -12,8 +12,13 @@
     fd
     bottom
 
+    discord
     spotify
     gimp-with-plugins
+    brave
+    _1password-gui
+    signal-desktop
+    darktable
 
     # Desktop
     # - Notifications

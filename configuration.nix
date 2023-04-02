@@ -204,7 +204,6 @@ in
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-      brave
     ];
   };
 
@@ -265,11 +264,6 @@ in
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.tumbler
-
-    # Software
-    _1password-gui
-    signal-desktop
-    darktable
   ];
 
   # This value determines the NixOS release from which the default
