@@ -5,12 +5,74 @@
   home.homeDirectory = "/home/tortoise";
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
-  programs.zsh.enable = true;
 
   home.packages = with pkgs; [
     exa
     bat
+    fd
+    bottom
+
+    spotify
+    gimp-with-plugins
   ];
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      # Don't print a new line at the start of the prompt
+      add_newline = false;
+      # Disable the package module, hiding it from the prompt completely
+      package = { disabled = true; };
+      git_branch = { truncation_length = 32; };
+    };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "fd --type f";
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.command-not-found.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    autocd = true;
+    defaultKeymap = "viins";
+    profileExtra = ''
+      if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+        export SDL_VIDEODRIVER=wayland
+        export MOZ_ENABLE_WAYLAND=1
+        export GTK_THEME=Dracula
+        export XDG_CURRENT_DESKTOP=Hyprland
+        export XDG_SESSION_TYPE=wayland
+        export XDG_SESSION_DESKTOP=Hyprland
+        export QT_AUTO_SCREEN_SCALE_FACTOR=1
+        export QT_QPA_PLATFORM="wayland;xcb"
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+        export QT_QPA_PLATFORMTHEME=qt5ct
+        export SDL_VIDEODRIVER=wayland
+        export _JAVA_AWT_WM_NONEREPARENTING=1
+        export CLUTTER_BACKEND="wayland"
+        # export GDK_BACKEND="wayland"
+
+        eval $(gnome-keyring-daemon -sd)
+        export SSH_AUTH_SOCK
+
+        exec Hyprland
+      fi
+      echo "YOOOOO"
+    '';
+  };
 
   programs.neovim = {
     enable = true;

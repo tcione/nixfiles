@@ -197,10 +197,11 @@ in
     pulse.enable = true;
   };
 
-  # users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.zsh;
   users.users.tortoise = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
       brave
@@ -228,12 +229,7 @@ in
     git
     kitty
     tmux
-    antibody
     direnv
-    bottom
-    starship
-    fzf
-    fd
     gcc
     go
     cleanup
@@ -281,9 +277,7 @@ in
     # Software
     _1password-gui
     signal-desktop
-    spotify
     darktable
-    gimp-with-plugins
   ];
 
   # This value determines the NixOS release from which the default
