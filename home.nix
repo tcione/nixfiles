@@ -231,6 +231,8 @@
       export PATH="$PATH:$HOME/.local/bin"
     '';
     profileExtra = ''
+      export EDITOR='vim'
+
       if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
         export SDL_VIDEODRIVER=wayland
         export MOZ_ENABLE_WAYLAND=1
@@ -580,6 +582,7 @@
 
   programs.vim = {
     enable = true;
+    defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       catppuccin-vim
     ];
