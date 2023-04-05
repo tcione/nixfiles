@@ -150,15 +150,15 @@
         modules-left = [ "wlr/workspaces" ];
         modules-center = [];
         modules-right = [
+          "tray"
           "pulseaudio"
           "backlight"
           "network"
-          "cpu"
-          "memory"
-          "temperature"
+          # "cpu"
+          # "memory"
+          # "temperature"
           "battery"
           "clock"
-          "tray"
         ];
         "wlr/workspaces" = {
           disable-scroll = true;
@@ -317,10 +317,8 @@
       }
 
       #tray {
-          margin-left: 8px;
           padding-left: 8px;
           padding-right: 8px;
-          border-left: 1px solid @text;
       }
 
       #clock {
