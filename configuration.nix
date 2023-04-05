@@ -202,9 +202,6 @@ in
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      firefox
-    ];
   };
 
   environment.shells = with pkgs; [ zsh ];

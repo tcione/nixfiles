@@ -16,6 +16,7 @@
     spotify
     gimp-with-plugins
     brave
+    firefox
     _1password-gui
     signal-desktop
     darktable
