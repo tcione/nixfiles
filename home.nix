@@ -418,6 +418,9 @@
       set -g status-style fg=#A6E3A1,bg=#1E1E2E
 
       set-option -g allow-rename off
+      set -g default-shell $SHELL
+      set -g default-terminal "xterm-256color"
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
       bind-key c new-window -c '#{pane_current_path}'
       bind | split-window -h -c '#{pane_current_path}'
       bind - split-window -v -c '#{pane_current_path}'
@@ -437,7 +440,7 @@
     '';
   };
 
-  home.file."./.config/hypr/mocha.conf" = {
+  home.file."./.config/hypr/themes/mocha.conf" = {
     executable = false;
     text = ''
       $rosewater = 0xfff5e0dc
