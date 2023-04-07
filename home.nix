@@ -28,6 +28,8 @@
     grim
     slurp
     wl-clipboard
+    # - Session
+    swaylock-effects
     # - Media
     pavucontrol
     pamixer
@@ -53,6 +55,68 @@
   # ========================================
   # == Start: DESKTOP
   # ========================================
+
+  services.swayidle = {
+    enable = true;
+    events = [
+      {
+        event = "before-sleep";
+        command = "lock-system.sh";
+      }
+      {
+        event = "after-resume";
+        command = "cyprctl dispatch dpms on";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 300;
+        command = "lock-system.sh";
+      }
+      {
+        timeout = 420;
+        command = "cyprctl dispatch dpms off";
+      }
+    ];
+  };
+
+  home.file."./.local/bin/lock-system.sh" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+
+      swaylock \
+          --daemonize \
+          --screenshots \
+          --clock \
+          --indicator \
+          --indicator-radius 100 \
+          --indicator-thickness 7 \
+          --effect-blur 7x5 \
+          --effect-vignette 0.5:0.5 \
+          --font "Fira Sans" \
+          --text-color cdd6f4 \
+          --ring-color b4befe \
+          --key-hl-color ffffff66 \
+          --line-color 00000000 \
+          --inside-color 1e1e2e88 \
+          --separator-color 00000000 \
+          --ring-ver-color 89dceb \
+          --line-ver-color 00000000 \
+          --inside-ver-color 1e1e2e88 \
+          --text-ver-color cdd6f4 \
+          --ring-clear-color fab387 \
+          --line-clear-color 00000000 \
+          --inside-clear-color 1e1e2e88 \
+          --text-clear-color cdd6f4 \
+          --ring-wrong-color f38na8 \
+          --line-wrong-color 00000000 \
+          --inside-wrong-color 1e1e2e88 \
+          --text-wrong-color cdd6f4 \
+          --grace 2 \
+          --fade-in 0.2
+    '';
+  };
 
   dconf = {
     enable = true;
@@ -533,7 +597,6 @@
       exec-once = configure-gtk
       exec-once = gammastep-indicator
       exec-once = blueman-applet
-      exec-once = enable-swayidle
       exec-once = 1password --silent
       exec-once = mullvad-vpn
 
