@@ -261,6 +261,7 @@
         "wlr/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
+          on-click = "activate";
           format = "{name}: {icon}";
           format-icons = {
             "1" = "";
