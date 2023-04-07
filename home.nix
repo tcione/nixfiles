@@ -20,7 +20,6 @@
     _1password-gui
     signal-desktop
     darktable
-    direnv
 
     # Desktop
     networkmanagerapplet
@@ -56,6 +55,7 @@
   imports = [
     ./user-config/command-not-found.nix
     ./user-config/desktop.nix
+    ./user-config/direnv.nix
     ./user-config/fzf.nix
     ./user-config/git.nix
     ./user-config/kitty.nix
