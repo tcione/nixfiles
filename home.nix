@@ -573,9 +573,34 @@
     '';
   };
 
+  home.file."./.local/bin/logout.sh" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+
+      session=`loginctl session-status | head -n 1 | awk '{print $1}'`
+      loginctl terminate-session $session
+    '';
+  };
+
   home.file."./.config/hypr/hyprland.conf" = {
     executable = false;
     text = ''
+      env = SDL_VIDEODRIVER,wayland
+      env = MOZ_ENABLE_WAYLAND,1
+      env = GTK_THEME,Dracula
+      env = XDG_CURRENT_DESKTOP,Hyprland
+      env = XDG_SESSION_TYPE,wayland
+      env = XDG_SESSION_DESKTOP,Hyprland
+      env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+      env = QT_QPA_PLATFORM,"wayland;xcb"
+      env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+      env = QT_QPA_PLATFORMTHEME,qt5ct
+      env = SDL_VIDEODRIVER,wayland
+      env = _JAVA_AWT_WM_NONEREPARENTING,1
+      env = CLUTTER_BACKEND,"wayland"
+      # env = export GDK_BACKEND,"wayland"
+
       # Please note not all available settings / options are set here.
       # For a full list, see the wiki
       #
@@ -587,15 +612,11 @@
       monitor=DP-2,2560x1440@144,0x0,1
       monitor=eDP-1,addreserved,1,2,1,1
 
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-
       # Execute your favorite apps at launch
       exec-once = swaybg -o \* -i ~/Pictures/Backgrounds/bosma_lisbon_final.jpg -m fill
       exec-once = waybar
       # exec-once = eww daemon && eww open bar
       exec-once = dunst
-      exec-once = dbus-hyprland-environment
-      exec-once = configure-gtk
       exec-once = gammastep-indicator
       exec-once = blueman-applet
       exec-once = 1password --silent
@@ -624,27 +645,21 @@
       }
 
       general {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
           gaps_in = 2
           gaps_out = 2
           border_size = 1
-          col.active_border = rgba(aaaaaaee)
+          col.active_border = rgba(ff89b4aa)
           col.inactive_border = rgba(595959aa)
-
           layout = dwindle
       }
 
       decoration {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
           rounding = 10
-          inactive_opacity = 0.9
+          inactive_opacity = 1.0
           blur = no
           blur_size = 3
           blur_passes = 1
           blur_new_optimizations = on
-
           drop_shadow = no
           shadow_range = 4
           shadow_render_power = 3
@@ -653,11 +668,7 @@
 
       animations {
           enabled = yes
-
-          # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-
           bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
           animation = windows, 1, 7, myBezier
           animation = windowsOut, 1, 7, default, popin 80%
           animation = border, 1, 10, default
@@ -666,23 +677,18 @@
       }
 
       dwindle {
-          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
           pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
           preserve_split = yes # you probably want this
       }
 
       master {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
           new_is_master = true
       }
 
       gestures {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
           workspace_swipe = off
       }
 
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
       device:epic mouse V1 {
           sensitivity = -0.5
       }
@@ -694,7 +700,6 @@
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
 
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       $mainMod = SUPER
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
@@ -911,21 +916,6 @@
       export EDITOR='vim'
 
       if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-        export SDL_VIDEODRIVER=wayland
-        export MOZ_ENABLE_WAYLAND=1
-        export GTK_THEME=Dracula
-        export XDG_CURRENT_DESKTOP=Hyprland
-        export XDG_SESSION_TYPE=wayland
-        export XDG_SESSION_DESKTOP=Hyprland
-        export QT_AUTO_SCREEN_SCALE_FACTOR=1
-        export QT_QPA_PLATFORM="wayland;xcb"
-        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-        export QT_QPA_PLATFORMTHEME=qt5ct
-        export SDL_VIDEODRIVER=wayland
-        export _JAVA_AWT_WM_NONEREPARENTING=1
-        export CLUTTER_BACKEND="wayland"
-        # export GDK_BACKEND="wayland"
-
         eval $(gnome-keyring-daemon -sd)
         export SSH_AUTH_SOCK
 
