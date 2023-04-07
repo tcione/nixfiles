@@ -28,13 +28,25 @@
         inherit system;
 
         modules = [
-          hyprland.nixosModules.default { programs.hyprland.enable = true; }
+          hyprland.nixosModules.default
+          {
+            programs.hyprland = {
+              enable = true;
+              recommendedEnvironment = true;
+              xwayland = {
+                enable = true;
+                hidpi = true;
+              };
+            };
+          }
           ./configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.tortoise = {
-              imports = [ ./home.nix ];
+              imports = [
+                ./home.nix
+              ];
             };
           }
         ];
