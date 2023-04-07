@@ -24,13 +24,27 @@
     # Desktop
     # - Notifications
     wofi
-    glib
     libnotify
+    # - GTK stuff
+    dracula-theme
+    glib
+    gnome3.adwaita-icon-theme
   ];
 
   # ========================================
   # == Start: DESKTOP
   # ========================================
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        gtk-theme = "Dracula";
+        icon-theme = "Dracula";
+      };
+    };
+  };
 
   services.dunst = {
     enable = true;

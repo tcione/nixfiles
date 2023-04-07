@@ -61,35 +61,6 @@ let
           --fade-in 0.2
     '';
   };
-
-  # Taken from https://nixos.wiki/wiki/Sway
-  dbus-hyprland-environment = pkgs.writeTextFile {
-    name = "dbus-hyprland-environment";
-    destination = "/bin/dbus-hyprland-environment";
-    executable = true;
-    text = ''
-      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland SSH_AUTH_SOCK
-      systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
-      systemctl --user start pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
-    '';
-  };
-
-  # Taken from https://nixos.wiki/wiki/Sway
-  configure-gtk = pkgs.writeTextFile {
-    name = "configure-gtk";
-    destination = "/bin/configure-gtk";
-    executable = true;
-    text = let
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-      gnome_schema=org.gnome.desktop.interface
-      gsettings set $gnome_schema color-scheme 'prefer-dark'
-      gsettings set $gnome_schema gtk-theme 'Dracula'
-      gsettings set $gnome_schema icon-theme "Dracula"
-      '';
-  };
 in
 {
   imports =
@@ -210,7 +181,6 @@ in
 
     # Desktop
     networkmanagerapplet
-    dbus-hyprland-environment
     swaybg
     grim
     slurp
@@ -228,11 +198,6 @@ in
     font-manager
     playerctl
     vlc
-    # - GTK stuff
-    dracula-theme
-    configure-gtk
-    glib
-    gnome3.adwaita-icon-theme
     # - File manager
     xfce.thunar
     xfce.thunar-volman
