@@ -173,36 +173,16 @@ in
     wget
     zsh
     git
-    tmux
-    direnv
     gcc
     go
     cleanup
 
     # Desktop
-    networkmanagerapplet
-    swaybg
-    grim
-    slurp
-    wl-clipboard
     # - Session
     swaylock-effects
     swayidle
     enable-swayidle
     lock-system
-    # - Media
-    pavucontrol
-    pamixer
-    imv
-    evince
-    font-manager
-    playerctl
-    vlc
-    # - File manager
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-    xfce.tumbler
   ];
 
   # This value determines the NixOS release from which the default

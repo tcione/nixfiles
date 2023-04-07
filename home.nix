@@ -20,8 +20,22 @@
     _1password-gui
     signal-desktop
     darktable
+    direnv
 
     # Desktop
+    networkmanagerapplet
+    swaybg
+    grim
+    slurp
+    wl-clipboard
+    # - Media
+    pavucontrol
+    pamixer
+    imv
+    evince
+    playerctl
+    vlc
+    font-manager
     # - Notifications
     wofi
     libnotify
@@ -29,6 +43,11 @@
     dracula-theme
     glib
     gnome3.adwaita-icon-theme
+    # - File manager
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+    xfce.tumbler
   ];
 
   # ========================================
