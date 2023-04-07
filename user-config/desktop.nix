@@ -68,9 +68,26 @@
     settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        gtk-theme = "Dracula";
-        icon-theme = "Dracula";
+        cursor-theme = "Catppuccin-Mocha-Dark";
       };
+    };
+  };
+
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Peach-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "peach" ];
+        size = "standard";
+        tweaks = [ ];
+        variant = "mocha";
+      };
+    };
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Dark";
+      package = pkgs.catppuccin-cursors;
     };
   };
 
@@ -438,7 +455,6 @@
     text = ''
       env = SDL_VIDEODRIVER,wayland
       env = MOZ_ENABLE_WAYLAND,1
-      env = GTK_THEME,Dracula
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
       env = XDG_SESSION_DESKTOP,Hyprland

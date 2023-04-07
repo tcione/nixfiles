@@ -42,7 +42,8 @@
     wofi
     libnotify
     # - GTK stuff
-    dracula-theme
+    catppuccin-gtk
+    catppuccin-cursors
     glib
     gnome3.adwaita-icon-theme
     # - File manager
