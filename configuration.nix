@@ -11,27 +11,6 @@ let
     '';
   };
 
-  wofi-power-menu = pkgs.writeTextFile {
-    name = "wofi-power-menu";
-    destination = "/bin/wofi-power-menu";
-    executable = true;
-    text = ''
-      entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
-      selected=$(echo -e $entries|wofi --width 250 --height 210 --dmenu --cache-file /dev/null --insentitive | awk '{print tolower($2)}')
-
-      case $selected in
-        logout)
-          swaymsg exit;;
-        suspend)
-          exec systemctl suspend;;
-        reboot)
-          exec systemctl reboot;;
-        shutdown)
-          exec systemctl poweroff -i;;
-      esac
-    '';
-  };
-
   enable-swayidle = pkgs.writeTextFile {
     name = "enable-swayidle";
     destination = "/bin/enable-swayidle";
@@ -241,7 +220,6 @@ in
     swayidle
     enable-swayidle
     lock-system
-    wofi-power-menu
     # - Media
     pavucontrol
     pamixer
