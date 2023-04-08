@@ -18,6 +18,7 @@
       rnix-lsp
       nil
       gnumake
+      libclang
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -146,6 +147,10 @@
             capabilities = capabilities,
           })
           nvim_lsp.rnix.setup{on_attach=on_attach}
+          nvim_lsp.clangd.setup({
+            on_attach = on_lsp_attach,
+            capabilities = capabilities,
+          })
         '';
       }
 
