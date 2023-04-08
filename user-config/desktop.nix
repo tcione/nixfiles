@@ -10,7 +10,7 @@
       }
       {
         event = "after-resume";
-        command = "cyprctl dispatch dpms on";
+        command = "hyprctl dispatch dpms on";
       }
     ];
     timeouts = [
@@ -20,7 +20,7 @@
       }
       {
         timeout = 420;
-        command = "cyprctl dispatch dpms off";
+        command = "hyprctl dispatch dpms off";
       }
     ];
   };
