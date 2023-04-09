@@ -1,28 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  services.swayidle = {
-    enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = "lock-system.sh";
-      }
-      {
-        event = "after-resume";
-        command = "hyprctl dispatch dpms on";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 300;
-        command = "lock-system.sh";
-      }
-      {
-        timeout = 420;
-        command = "hyprctl dispatch dpms off";
-      }
-    ];
+  home.file."./.local/bin/setup-idleness.sh" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+
+      swayidle -d -w \
+        timeout 300 'lock-system.sh' \
+        timeout 360 'hyprctl dispatch dpms off' \
+          resume 'hyprctl dispatch dpms on' \
+        before-sleep 'lock-system.sh'
+    '';
   };
 
   home.file."./.local/bin/lock-system.sh" = {
@@ -474,16 +463,20 @@
       monitor=DP-2,2560x1440@144,0x0,1
       monitor=eDP-1,addreserved,1,2,1,1
 
-      # Execute your favorite apps at launch
+      wsbind=1,DP-1
+      wsbind=2,DP-1
+      wsbind=3,DP-1
+      wsbind=4,DP-1
+      wsbind=5,DP-1
+
       exec-once = swaybg -o \* -i ~/Pictures/Backgrounds/bosma_lisbon_final.jpg -m fill
       exec-once = waybar
-      # exec-once = eww daemon && eww open bar
       exec-once = dunst
       exec-once = gammastep-indicator
       exec-once = blueman-applet
       exec-once = 1password --silent
       exec-once = mullvad-vpn
-      exec-once = systemctl --user start swayidle
+      exec-once = setup-idleness.sh
 
       # Source a file (multi-file configs)
       source=~/.config/hypr/themes/mocha.conf

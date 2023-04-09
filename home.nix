@@ -29,6 +29,7 @@
     wl-clipboard
     # - Session
     swaylock-effects
+    swayidle
     # - Media
     pavucontrol
     pamixer
