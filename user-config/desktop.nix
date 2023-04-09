@@ -226,12 +226,8 @@
           on-click = "activate";
           format = "{name}: {icon}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
             urgent = "";
+            active = "";
             default = "";
           };
         };
@@ -487,6 +483,7 @@
       exec-once = blueman-applet
       exec-once = 1password --silent
       exec-once = mullvad-vpn
+      exec-once = systemctl --user start swayidle
 
       # Source a file (multi-file configs)
       source=~/.config/hypr/themes/mocha.conf
