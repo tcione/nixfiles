@@ -230,6 +230,7 @@
       vim-vinegar
       BufOnly-vim
       PreserveNoEOL
+      ferret
     ];
 
     extraConfig = ''

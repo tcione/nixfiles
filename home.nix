@@ -11,6 +11,7 @@
     bat
     fd
     bottom
+    ripgrep
 
     discord
     spotify

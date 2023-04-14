@@ -32,7 +32,6 @@
           {
             programs.hyprland = {
               enable = true;
-              recommendedEnvironment = true;
               xwayland = {
                 enable = true;
                 hidpi = true;
