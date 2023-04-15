@@ -18,8 +18,6 @@
     gimp-with-plugins
     brave
     firefox
-    _1password-gui
-    _1password
     signal-desktop
     darktable
 
