@@ -470,6 +470,7 @@
       wsbind=5,DP-1
 
       exec-once = swaybg -o \* -i ~/Pictures/Backgrounds/bosma_lisbon_final.jpg -m fill
+      exec-once = hyprctl setcursor Catppuccin-Mocha-Dark-Cursors 24
       exec-once = waybar
       exec-once = dunst
       exec-once = gammastep-indicator
