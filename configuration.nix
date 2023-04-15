@@ -117,6 +117,7 @@ in
       }
     '';
   };
+  environment.etc."polkit-gnome-authentication-agent-1".source = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
 
   environment.systemPackages = with pkgs; [
     # Basic tools
@@ -127,6 +128,7 @@ in
     gcc
     go
     cleanup
+    polkit_gnome
   ];
 
   # This value determines the NixOS release from which the default

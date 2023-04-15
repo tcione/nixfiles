@@ -475,8 +475,9 @@
       exec-once = dunst
       exec-once = gammastep-indicator
       exec-once = blueman-applet
+      exec-once = /etc/polkit-gnome-authentication-agent-1
       exec-once = 1password --silent
-      exec-once = mullvad-vpn
+      # exec-once = mullvad-vpn
       exec-once = setup-idleness.sh
 
       # Source a file (multi-file configs)
