@@ -39,7 +39,6 @@
     vlc
     font-manager
     # - Notifications
-    wofi
     libnotify
     # - GTK stuff
     catppuccin-gtk

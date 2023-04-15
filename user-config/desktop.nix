@@ -80,6 +80,31 @@
     };
   };
 
+  programs.rofi = {
+    enable = true;
+    terminal = "kitty";
+    theme = "./themes/catppuccin-mocha.rasi";
+    extraConfig = {
+      modi = "run,drun,window";
+      icon-theme = "Adwaita";
+      show-icons = true;
+      drun-display-format = "{icon} {name}";
+      location = 0;
+      disable-history = false;
+      hide-scrollbar = true;
+      display-drun = "   Apps ";
+      display-run = "   Run ";
+      display-window = " 﩯  Window";
+      display-Network = " 󰤨  Network";
+      sidebar-mode = true;
+    };
+  };
+
+  home.file."./.config/rofi/themes/catppuccin-mocha.rasi" = {
+    enable = true;
+    source = ./files/catppuccin-mocha.rasi;
+  };
+
   services.dunst = {
     enable = true;
     iconTheme = {
@@ -569,7 +594,7 @@
       bind = $mainMod, Space, togglefloating,
       bind = $mainMod, M, fullscreen, 1
       bind = $mainMod, F, fullscreen, 0
-      bind = $mainMod, D, exec, wofi --allow-images --show drun --define=key_expand=space
+      bind = $mainMod, D, exec, rofi -show combi -modes combi -combi-modes "window,drun,run"
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, T, togglesplit, # dwindle
 
@@ -620,9 +645,6 @@
       bind = , XF86AudioRaiseVolume , exec , pamixer -i 5 && notify-send -h int:value:$(pamixer --get-volume) "  Volume"
       bind = , XF86AudioLowerVolume , exec , pamixer -d 5 && notify-send -h int:value:$(pamixer --get-volume) "  Volume"
       bind = , XF86AudioMute , exec , pamixer -t && notify-send -h int:value:$(pamixer --get-volume) "Volume /"
-
-      bind = , XF86AudioMedia , exec , wofi-power-menu
-
       bind = , XF86AudioPlay , exec , dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
       bind = , XF86AudioNext , exec , dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
       bind = , XF86AudioPrev , exec , dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
