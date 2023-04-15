@@ -54,15 +54,22 @@
 
   imports = [
     ./user-config/command-not-found.nix
-    ./user-config/desktop.nix
+    ./user-config/dconf.nix
+    ./user-config/desktop-session-scripts.nix
     ./user-config/direnv.nix
+    ./user-config/dunst.nix
     ./user-config/fzf.nix
+    ./user-config/gammastep.nix
     ./user-config/git.nix
+    ./user-config/gtk.nix
+    ./user-config/hyprland.nix
     ./user-config/kitty.nix
     ./user-config/neovim.nix
+    ./user-config/rofi.nix
     ./user-config/starship.nix
     ./user-config/tmux.nix
     ./user-config/vim.nix
+    ./user-config/waybar.nix
     ./user-config/zoxide.nix
     ./user-config/zsh.nix
   ];
