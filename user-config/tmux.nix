@@ -58,59 +58,16 @@
 
   home.file."./.local/bin/tmux-init.sh" = {
     executable = true;
-    text = ''
-      #!/usr/bin/env bash
-
-      tmux-safe-switch.sh "home" "$HOME"
-    '';
+    source = ./files/tmux-init.sh;
   };
 
   home.file."./.local/bin/tmux-sessionizer.sh" = {
     executable = true;
-    text = ''
-      #!/usr/bin/env bash
-
-      # Taken from https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
-
-      if [[ $# -eq 1 ]]; then
-        selected=$1
-      else
-        selected=$(find ~/Projects -mindepth 1 -maxdepth 1 -type d | fzf)
-      fi
-
-      if [[ -z $selected ]]; then
-        exit 0
-      fi
-
-      selected_name=$(basename "$selected" | tr . _)
-
-      tmux-safe-switch.sh "$selected_name" "$selected"
-    '';
+    source = ./files/tmux-sessionizer.sh;
   };
 
   home.file."./.local/bin/tmux-safe-switch.sh" = {
     executable = true;
-    text = ''
-      #!/usr/bin/env bash
-
-      session_name="$1"
-      session_dir="$2"
-      tmux_running=$(pgrep tmux)
-
-      if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-        tmux new-session -s "$session_name" -c "$session_dir"
-        exit 0
-      fi
-
-      if ! tmux has-session -t "$session_name" 2> /dev/null; then
-        tmux new-session -ds "$session_name" -c "$session_dir"
-      fi
-
-      if [[ -z $TMUX ]]; then
-        tmux attach -t "$session_name"
-      else
-        tmux switch-client -t "$session_name"
-      fi
-    '';
+    source = ./files/tmux-safe-switch.sh;
   };
 }
