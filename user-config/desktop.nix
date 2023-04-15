@@ -57,7 +57,7 @@
     settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        cursor-theme = "Catppuccin-Mocha-Dark";
+        cursor-theme = "Catppuccin-Mocha-Dark-Cursors";
       };
     };
   };
@@ -75,8 +75,8 @@
       };
     };
     cursorTheme = {
-      name = "Catppuccin-Mocha-Dark";
-      package = pkgs.catppuccin-cursors;
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
     };
   };
 
