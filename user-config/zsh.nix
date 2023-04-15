@@ -16,7 +16,7 @@
 
       if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
         eval $(gnome-keyring-daemon -sd)
-        export SSH_AUTH_SOCK
+        export SSH_AUTH_SOCK=~/.1password/agent.sock
 
         exec Hyprland
       fi
