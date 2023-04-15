@@ -39,6 +39,7 @@
     vlc
     font-manager
     # - Notifications
+    wofi
     libnotify
     # - GTK stuff
     catppuccin-gtk
@@ -65,7 +66,6 @@
     ./user-config/hyprland.nix
     ./user-config/kitty.nix
     ./user-config/neovim.nix
-    ./user-config/rofi.nix
     ./user-config/starship.nix
     ./user-config/tmux.nix
     ./user-config/vim.nix
