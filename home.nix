@@ -7,7 +7,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    exa
     bat
     fd
     bottom
@@ -59,6 +58,7 @@
     ./user-config/desktop-session-scripts.nix
     ./user-config/direnv.nix
     ./user-config/dunst.nix
+    ./user-config/exa.nix
     ./user-config/fzf.nix
     ./user-config/gammastep.nix
     ./user-config/git.nix
