@@ -19,6 +19,9 @@
     firefox
     signal-desktop
     darktable
+    sigil
+    zip
+    unzip
 
     # Desktop
     networkmanagerapplet
