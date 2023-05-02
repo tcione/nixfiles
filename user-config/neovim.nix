@@ -224,6 +224,41 @@
           let g:NERDSpaceDelims = 1
         '';
       }
+      {
+        plugin = zen-mode-nvim;
+        type = "lua";
+        config = ''
+          require("zen-mode").setup({
+            window = {
+              backdrop = 1,
+              width = 80,
+              height = 1,
+              options = {
+                signcolumn = "no",
+                number = false,
+                colorcolumn = "",
+              },
+            },
+            plugins = {
+              options = {
+                enabled = true,
+                ruler = true,
+                showcmd = false,
+                relativenumber = false,
+                spell = true,
+              },
+              kitty = {
+                enabled = false,
+                font = "+4",
+              },
+            },
+            on_open = function(win)
+            end,
+            on_close = function()
+            end,
+          })
+        '';
+      }
       quickfix-reflector-vim
       vim-eunuch
       vim-fugitive
