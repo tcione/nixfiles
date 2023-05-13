@@ -29,6 +29,7 @@
     grim
     slurp
     wl-clipboard
+    clipman
     # - Session
     swaylock-effects
     swayidle
