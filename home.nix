@@ -30,6 +30,7 @@
     slurp
     wl-clipboard
     clipman
+    hyprpicker
     # - Session
     swaylock-effects
     swayidle
