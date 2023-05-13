@@ -31,6 +31,7 @@
     wl-clipboard
     clipman
     hyprpicker
+    udiskie
     # - Session
     swaylock-effects
     swayidle
