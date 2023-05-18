@@ -23,6 +23,7 @@
           "battery"
           "network"
           "clock"
+          "custom/power"
         ];
         "wlr/workspaces" = {
           disable-scroll = true;
@@ -104,6 +105,10 @@
         "custom/system" = {
           format = "";
           on-click = "kitty --class tuineofetch --hold neofetch";
+        };
+        "custom/power" = {
+          format = "";
+          on-click = "power-menu.sh";
         };
       };
     };
