@@ -71,7 +71,7 @@ in
   programs.seahorse.enable = true;
   programs.ssh.startAgent = true;
 
-  services.mullvad-vpn.enable = false;
+  services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   programs.light.enable = true;
