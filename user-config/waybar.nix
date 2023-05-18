@@ -8,17 +8,20 @@
         layer = "top";
         height = 30;
         spacing = 4;
-        modules-left = [ "wlr/workspaces" ];
-        modules-center = [];
+        modules-left = [
+          "custom/system"
+          "wlr/workspaces"
+        ];
+        modules-center = [ ];
         modules-right = [
           "tray"
           "pulseaudio"
           "backlight"
-          "network"
-          # "cpu"
-          # "memory"
-          # "temperature"
+          "cpu"
+          "memory"
+          "temperature"
           "battery"
+          "network"
           "clock"
         ];
         "wlr/workspaces" = {
@@ -43,6 +46,7 @@
         clock = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "{:%Y-%m-%d}";
+          on-click = "firefox --new-window https://calendar.google.com";
         };
         cpu = {
           format = "{usage}% ";
@@ -96,6 +100,10 @@
         "hyprland/window" = {
           format = "{}";
           separate-outputs = true;
+        };
+        "custom/system" = {
+          format = "";
+          on-click = "kitty --class tuineofetch --hold neofetch";
         };
       };
     };

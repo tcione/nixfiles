@@ -22,6 +22,7 @@
     sigil
     zip
     unzip
+    neofetch
 
     # Desktop
     networkmanagerapplet
