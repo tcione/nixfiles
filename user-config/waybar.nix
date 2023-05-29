@@ -48,7 +48,7 @@
         clock = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "{:%Y-%m-%d}";
-          on-click = "firefox --new-window https://calendar.google.com";
+          on-click-right = "firefox --new-window https://calendar.google.com";
         };
         cpu = {
           format = "{usage}% ";
