@@ -12,17 +12,17 @@
     bottom
     ripgrep
 
-    discord
-    spotify
-    gimp-with-plugins
     brave
-    firefox
-    signal-desktop
     darktable
-    sigil
-    zip
-    unzip
+    discord
+    firefox
+    gimp-with-plugins
     neofetch
+    obsidian
+    signal-desktop
+    spotify
+    unzip
+    zip
 
     # Desktop
     networkmanagerapplet
