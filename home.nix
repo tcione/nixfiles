@@ -35,6 +35,7 @@
     udiskie
     # - Session
     swaylock-effects
+    swayidle
     # - Media
     pavucontrol
     pamixer
@@ -73,7 +74,6 @@
     ./user-config/kitty.nix
     ./user-config/neovim.nix
     ./user-config/starship.nix
-    ./user-config/swayidle.nix
     ./user-config/tmux.nix
     ./user-config/vim.nix
     ./user-config/waybar.nix
