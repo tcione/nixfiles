@@ -11,6 +11,7 @@
     fd
     bottom
     ripgrep
+    tldr
 
     brave
     darktable
@@ -23,6 +24,7 @@
     spotify
     unzip
     zip
+    orpie
 
     # Desktop
     networkmanagerapplet
@@ -39,11 +41,11 @@
     # - Media
     pavucontrol
     pamixer
-    imv
     evince
     playerctl
     vlc
     font-manager
+    vimiv-qt
     # - Notifications
     wofi
     libnotify
@@ -71,6 +73,7 @@
     ./user-config/git.nix
     ./user-config/gtk.nix
     ./user-config/hyprland.nix
+    ./user-config/imv.nix
     ./user-config/kitty.nix
     ./user-config/neovim.nix
     ./user-config/starship.nix
