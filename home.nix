@@ -20,21 +20,22 @@
     gimp-with-plugins
     neofetch
     obsidian
+    orpie
     signal-desktop
     spotify
     unzip
     zip
-    orpie
 
     # Desktop
-    networkmanagerapplet
-    swaybg
-    grim
-    slurp
-    wl-clipboard
     clipman
+    grim
     hyprpicker
+    kooha
+    networkmanagerapplet
+    slurp
+    swaybg
     udiskie
+    wl-clipboard
     # - Session
     swaylock-effects
     swayidle
