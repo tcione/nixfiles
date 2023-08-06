@@ -151,6 +151,10 @@
             on_attach = on_lsp_attach,
             capabilities = capabilities,
           })
+          nvim_lsp.svelte.setup({
+            on_attach = on_lsp_attach,
+            capabilities = capabilities,
+          })
         '';
       }
 
