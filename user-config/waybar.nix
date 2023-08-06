@@ -12,6 +12,7 @@
         modules-left = [
           "custom/system"
           "wlr/workspaces"
+          "hyprland/window"
         ];
         modules-center = [ ];
         modules-right = [
@@ -84,11 +85,11 @@
         };
         pulseaudio = {
           format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon}   {format_source}";
-          format-bluetooth-muted = "  {icon}   {format_source}";
-          format-muted = "  {format_source}";
-          format-source = "{volume}% ";
-          format-source-muted = "";
+          format-bluetooth = "{volume}% {icon}  {format_source}";
+          format-bluetooth-muted = " {icon}  {format_source}";
+          format-muted = " {format_source}";
+          format-source = "| {volume}% ";
+          format-source-muted = "| ";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -100,17 +101,23 @@
           };
           on-click = "pavucontrol";
         };
-        "hyprland/window" = {
-          format = "{}";
-          separate-outputs = true;
-        };
         "custom/system" = {
           format = "";
           on-click = "kitty --class tuineofetch --hold neofetch";
         };
         "custom/power" = {
           format = "";
-          on-click = "power-menu.sh";
+          on-click = "sleep 0.1 && ~/.local/bin/power-menu.sh";
+        };
+        "hyprland/window" = {
+          format = "  [{class}] {title}";
+          separate-outputs = true;
+          rewrite = {
+            ".*\\[Signal\\].*" = "  Signal";
+            ".*\\[firefox\\] (.*) — Mozilla Firefox" = "  $1";
+            ".*\\[kitty\\] (.*)" = "  $1";
+            ".*\\[\\].*" = "٩(˘◡˘)۶";
+          };
         };
       };
     };

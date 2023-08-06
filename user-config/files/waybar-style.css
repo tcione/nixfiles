@@ -42,14 +42,11 @@ window#waybar {
     color: white;
 }
 
-#window {
-    font-weight: bold;
-    font-family: "Fira Sans";
-}
 
 .modules-right,
 #custom-system,
-#workspaces {
+#workspaces,
+#window {
     border-radius: 10px;
     background: @base;
     opacity: 0.9;
@@ -58,12 +55,19 @@ window#waybar {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+#window {
+    font-weight: bold;
+    font-family: "Fira Sans";
+    margin-left: 1px;
+}
+
 #custom-system {
   margin-right: 1px;
 }
 
 #workspaces {
   margin-left: 0;
+  margin-right: 0;
 }
 
 #workspaces button {
