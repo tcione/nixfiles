@@ -8,23 +8,26 @@
 
   home.packages = with pkgs; [
     bat
-    fd
     bottom
-    ripgrep
-    tldr
-
     brave
     darktable
     discord
+    fd
     firefox
+    gh
     gimp-with-plugins
     neofetch
     obsidian
     orpie
+    ripgrep
     signal-desktop
     spotify
+    tldr
     unzip
     zip
+    gnumake
+    tcl
+    via
 
     # Desktop
     clipman
