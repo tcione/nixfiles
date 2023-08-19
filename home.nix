@@ -51,7 +51,6 @@
     font-manager
     vimiv-qt
     # - Notifications
-    wofi
     libnotify
     # - GTK stuff
     catppuccin-gtk
@@ -84,6 +83,7 @@
     ./user-config/tmux.nix
     ./user-config/vim.nix
     ./user-config/waybar.nix
+    ./user-config/wofi.nix
     ./user-config/zoxide.nix
     ./user-config/zsh.nix
   ];
