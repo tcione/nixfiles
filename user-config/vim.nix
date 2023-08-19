@@ -6,6 +6,8 @@
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       catppuccin-vim
+      vim-polyglot
+      vim-vinegar
     ];
     extraConfig = ''
       """""""""""""""""""""""""""""""""""""
