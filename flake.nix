@@ -24,6 +24,17 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      # overlays = [
+        # (self: super: {
+          # signal-desktop = super.signal-desktop.overrideAttrs (old: {
+             # preFixup = old.preFixup + ''
+               # gappsWrapperArgs+=(
+                 # --add-flags "--ozone-platform=wayland"
+               # )
+             # '';
+          # });
+        # })
+      # ];
     };
   in {
     nixosConfigurations = {
@@ -31,13 +42,13 @@
         inherit system;
 
         modules = [
+          # { nixpkgs = { inherit pkgs; }; }
           hyprland.nixosModules.default
           {
             programs.hyprland = {
               enable = true;
               xwayland = {
                 enable = true;
-                hidpi = true;
               };
             };
           }
