@@ -18,7 +18,7 @@
       rnix-lsp
       nil
       gnumake
-      libclang
+      clang
     ];
 
     plugins = with pkgs.vimPlugins; [

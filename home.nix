@@ -28,6 +28,7 @@
     gnumake
     tcl
     via
+    clang
 
     # Desktop
     clipman
@@ -40,7 +41,6 @@
     udiskie
     wl-clipboard
     # - Session
-    swaylock-effects
     swayidle
     # - Media
     pavucontrol
@@ -80,6 +80,7 @@
     ./user-config/kitty.nix
     ./user-config/neovim.nix
     ./user-config/starship.nix
+    ./user-config/swaylock.nix
     ./user-config/tmux.nix
     ./user-config/vim.nix
     ./user-config/waybar.nix
