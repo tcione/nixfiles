@@ -6,8 +6,8 @@ let
     destination = "/bin/cleanup";
     executable = true;
     text = ''
-      nix-collect-garbage --delete-older-than 7d
-      nix-store --optimise
+      sudo nix store gc
+      sudo nix store optimize
     '';
   };
 in
