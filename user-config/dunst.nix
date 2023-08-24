@@ -86,7 +86,7 @@
         category = "progress";
         width = 500;
         height = 500;
-        origin = "center-center";
+        origin = "center";
         offset = "0x0";
       };
     };

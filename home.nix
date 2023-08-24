@@ -9,26 +9,28 @@
   home.packages = with pkgs; [
     bat
     bottom
-    brave
+    clang
     darktable
     discord
     fd
     firefox
+    google-chrome
+    ungoogled-chromium
     gh
     gimp-with-plugins
+    gnumake
+    lm_sensors
     neofetch
     obsidian
     orpie
     ripgrep
     signal-desktop
     spotify
+    tcl
     tldr
     unzip
-    zip
-    gnumake
-    tcl
     via
-    clang
+    zip
 
     # Desktop
     clipman
@@ -47,9 +49,9 @@
     pamixer
     evince
     playerctl
-    vlc
     font-manager
     vimiv-qt
+    mpv
     # - Notifications
     libnotify
     # - GTK stuff
