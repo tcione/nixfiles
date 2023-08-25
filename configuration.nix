@@ -6,8 +6,12 @@ let
     destination = "/bin/cleanup";
     executable = true;
     text = ''
+      sudo nix-collect-garbage -d
       sudo nix store gc
-      sudo nix store optimize
+      sudo nix store optimise
+      nix-collect-garbage -d
+      nix store gc
+      nix store optimise
     '';
   };
 in

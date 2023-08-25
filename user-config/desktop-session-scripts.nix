@@ -10,4 +10,9 @@
     executable = true;
     source = ./files/power-menu.sh;
   };
+
+  home.file."./.local/bin/hyprland-mute.sh" = {
+    executable = true;
+    source = ./files/hyprland-mute.sh;
+  };
 }
