@@ -15,19 +15,4 @@
     executable = true;
     source = ./files/hyprland-mute.sh;
   };
-
-  home.file."./.local/bin/coffee-sip.sh" = {
-    executable = true;
-    source = ./files/coffee-sip.sh;
-  };
-
-  home.file."./.local/bin/coffee-toggle.sh" = {
-    executable = true;
-    source = ./files/coffee-toggle.sh;
-  };
-
-  home.file."./.local/bin/coffee-status.sh" = {
-    executable = true;
-    source = ./files/coffee-status.sh;
-  };
 }

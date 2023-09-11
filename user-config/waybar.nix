@@ -17,6 +17,7 @@
         modules-center = [ ];
         modules-right = [
           "tray"
+          "idle_inhibitor"
           "pulseaudio"
           "backlight"
           "cpu"
@@ -45,6 +46,14 @@
         };
         tray = {
           spacing = 10;
+        };
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            deactivated = "";
+            activated = "";
+            tooltip = false;
+          };
         };
         clock = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
