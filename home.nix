@@ -72,7 +72,7 @@
     ./user-config/desktop-session-scripts.nix
     ./user-config/direnv.nix
     ./user-config/dunst.nix
-    ./user-config/exa.nix
+    ./user-config/eza.nix
     ./user-config/fzf.nix
     ./user-config/gammastep.nix
     ./user-config/git.nix
