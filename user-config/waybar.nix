@@ -11,7 +11,7 @@
         spacing = 4;
         modules-left = [
           "custom/system"
-          "wlr/workspaces"
+          "hyprland/workspaces"
           "hyprland/window"
         ];
         modules-center = [ ];
@@ -28,7 +28,7 @@
           "clock"
           "custom/power"
         ];
-        "wlr/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
           on-click = "activate";
