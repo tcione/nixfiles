@@ -45,7 +45,7 @@
         show_age_threshold = 60;
         ellipsize = "middle";
         ignore_newline = "no";
-        stack_duplicates = false;
+        stack_duplicates = true;
         hide_duplicate_count = false;
         show_indicators = "yes";
         sticky_history = "yes";
