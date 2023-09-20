@@ -11,6 +11,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -18,25 +22,25 @@
       nixpkgs,
       hyprland,
       home-manager,
+      darwin,
   }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      # overlays = [
-        # (self: super: {
-          # signal-desktop = super.signal-desktop.overrideAttrs (old: {
-             # preFixup = old.preFixup + ''
-               # gappsWrapperArgs+=(
-                 # --add-flags "--ozone-platform=wayland"
-               # )
-             # '';
-          # });
-        # })
-      # ];
     };
   in {
+    darwinConfigurations = {
+      MAC2022HJ49 = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModule.home-manager
+          ./hosts/MAC2022HJ49/default.nix
+        ];
+      };
+    };
+
     nixosConfigurations = {
       sleepy-turtle = nixpkgs.lib.nixosSystem {
         inherit system;
