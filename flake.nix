@@ -26,24 +26,32 @@
   }:
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
   in {
     darwinConfigurations = {
       MAC2022HJ49 = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          home-manager.darwinModule.home-manager
           ./hosts/MAC2022HJ49/default.nix
+          home-manager.darwinModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.lapis = {
+              imports = [
+                ./hosts/MAC2022HJ49/home.nix
+              ];
+            };
+          }
         ];
       };
     };
 
     nixosConfigurations = {
       sleepy-turtle = nixpkgs.lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
 
         modules = [
           # { nixpkgs = { inherit pkgs; }; }
