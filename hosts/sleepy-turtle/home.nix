@@ -3,7 +3,7 @@
 {
   home.username = "tortoise";
   home.homeDirectory = "/home/tortoise";
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
@@ -67,27 +67,27 @@
   ];
 
   imports = [
-    ./user-config/command-not-found.nix
-    ./user-config/dconf.nix
-    ./user-config/desktop-session-scripts.nix
-    ./user-config/direnv.nix
-    ./user-config/dunst.nix
-    ./user-config/eza.nix
-    ./user-config/fzf.nix
-    ./user-config/gammastep.nix
-    ./user-config/git.nix
-    ./user-config/gtk.nix
-    ./user-config/hyprland.nix
-    ./user-config/imv.nix
-    ./user-config/kitty.nix
-    ./user-config/neovim.nix
-    ./user-config/starship.nix
-    ./user-config/swaylock.nix
-    ./user-config/tmux.nix
-    ./user-config/vim.nix
-    ./user-config/waybar.nix
-    ./user-config/wofi.nix
-    ./user-config/zoxide.nix
-    ./user-config/zsh.nix
+    ../../user-config/command-not-found.nix
+    ../../user-config/dconf.nix
+    ../../user-config/desktop-session-scripts.nix
+    ../../user-config/direnv.nix
+    ../../user-config/dunst.nix
+    ../../user-config/eza.nix
+    ../../user-config/fzf.nix
+    ../../user-config/gammastep.nix
+    ../../user-config/git.nix
+    ../../user-config/gtk.nix
+    ../../user-config/hyprland.nix
+    ../../user-config/imv.nix
+    ../../user-config/kitty.nix
+    ../../user-config/neovim.nix
+    ../../user-config/starship.nix
+    ../../user-config/swaylock.nix
+    ../../user-config/tmux.nix
+    ../../user-config/vim.nix
+    ../../user-config/waybar.nix
+    ../../user-config/wofi.nix
+    ../../user-config/zoxide.nix
+    ../../user-config/zsh.nix
   ];
 }

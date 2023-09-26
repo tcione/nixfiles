@@ -54,23 +54,14 @@
         };
 
         modules = [
-          # { nixpkgs = { inherit pkgs; }; }
           hyprland.nixosModules.default
-          {
-            programs.hyprland = {
-              enable = true;
-              xwayland = {
-                enable = true;
-              };
-            };
-          }
-          ./configuration.nix
+          ./hosts/sleepy-turtle/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.tortoise = {
               imports = [
-                ./home.nix
+                ./hosts/sleepy-turtle/home.nix
               ];
             };
           }
