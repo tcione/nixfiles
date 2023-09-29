@@ -22,17 +22,19 @@
       "visual-studio-code"
       "wkhtmltopdf"
       "rectangle"
+      "slack"
+      "kitty"
     ];
   };
 
   system.defaults = {
     screencapture = {
       disable-shadow = true;
-      location = "${HOME}/Desktop";
+      location = "/Users/lapis/Desktop";
       type = "png";
     };
     screensaver = {
-      askForPassword = 1;
+      askForPassword = true;
       askForPasswordDelay = 0;
     };
     dock = {
@@ -98,15 +100,11 @@
     LaunchServices = {
       LSQuarantine = false;
     };
-    universalaccess = {
-      closeViewScrollWheelToggle = true;
-      closeViewZoomFollowsFocus = true;
-    };
     CustomUserPreferences = {
       NSGlobalDomain = {
         NSToolbarTitleViewRolloverDelay = 0;
         WebKitDeveloperExtras = true;
-        AppleLanguages = "en" "pt";
+        AppleLanguages = ["en" "pt"];
         AppleLocale = "pt_BR@currency=EUR";
       };
       "com.apple.systempreferences" =  {

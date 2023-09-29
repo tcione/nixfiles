@@ -25,6 +25,9 @@
     defaultKeymap = "viins";
     initExtra = ''
       export PATH="$PATH:$HOME/.local/bin"
+      if [[ $(uname -m) == 'arm64' ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      fi
     '';
     profileExtra = ''
       export EDITOR='vim'
@@ -67,7 +70,7 @@
   imports = [
     ../../user-config/command-not-found.nix
     ../../user-config/direnv.nix
-    ../../user-config/exa.nix
+    ../../user-config/eza.nix
     ../../user-config/fzf.nix
     ../../user-config/git.nix
     ../../user-config/neovim.nix
