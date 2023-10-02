@@ -34,6 +34,11 @@
     '';
   };
 
+  programs.rtx = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.kitty = {
     enable = true;
     theme = "Catppuccin-Mocha";

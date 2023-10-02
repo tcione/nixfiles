@@ -20,10 +20,16 @@
       "spotify"
       "the-unarchiver"
       "visual-studio-code"
-      "wkhtmltopdf"
       "rectangle"
       "slack"
       "kitty"
+      "cron"
+      "superhuman"
+      "signal"
+      "todoist"
+
+      # Jobz_backend stuff, try removing later
+      "wkhtmltopdf"
     ];
   };
 
