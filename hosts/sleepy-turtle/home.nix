@@ -31,6 +31,7 @@
     unzip
     via
     zip
+    rclone
 
     # Desktop
     clipman
