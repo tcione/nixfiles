@@ -32,6 +32,7 @@
     via
     zip
     rclone
+    todoist-electron
 
     # Desktop
     clipman
