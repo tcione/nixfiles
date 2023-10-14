@@ -48,11 +48,6 @@
     nixosConfigurations = {
       sleepy-turtle = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
         modules = [
           hyprland.nixosModules.default
           ./hosts/sleepy-turtle/default.nix
