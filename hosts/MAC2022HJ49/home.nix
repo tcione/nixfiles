@@ -14,6 +14,8 @@
     tldr
     aws-vault
     jq
+    yq
+    gettext
   ];
 
   programs.zsh = {
