@@ -19,7 +19,7 @@
       nil
       gnumake
       clang-tools
-      go
+      gopls
       nodePackages_latest.vscode-langservers-extracted
     ];
 

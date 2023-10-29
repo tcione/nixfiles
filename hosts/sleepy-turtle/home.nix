@@ -33,6 +33,7 @@
     zip
     rclone
     todoist-electron
+    go
 
     # Desktop
     clipman
