@@ -12,10 +12,12 @@
     gh
     ripgrep
     tldr
+    awscli
     aws-vault
     jq
     yq
     gettext
+    yarn
   ];
 
   programs.zsh = {
