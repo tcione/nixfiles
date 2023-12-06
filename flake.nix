@@ -23,7 +23,7 @@
       hyprland,
       home-manager,
       darwin,
-  }:
+  } @ inputs:
   let
     system = "x86_64-linux";
   in {
@@ -48,8 +48,8 @@
     nixosConfigurations = {
       sleepy-turtle = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
-          hyprland.nixosModules.default
           ./hosts/sleepy-turtle/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

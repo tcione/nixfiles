@@ -34,6 +34,8 @@
     rclone
     todoist-electron
     go
+    synology-drive-client
+    xfce.xfconf
 
     # Desktop
     clipman
@@ -55,6 +57,7 @@
     font-manager
     vimiv-qt
     mpv
+    libheif
     # - Notifications
     libnotify
     # - GTK stuff
@@ -66,6 +69,7 @@
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
     xfce.tumbler
   ];
 
