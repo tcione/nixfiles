@@ -18,6 +18,8 @@
     yq
     gettext
     yarn
+    libyaml
+    gobject-introspection
   ];
 
   programs.zsh = {
