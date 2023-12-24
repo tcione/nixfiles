@@ -13,9 +13,6 @@
     darktable
     discord
     fd
-    firefox
-    google-chrome
-    ungoogled-chromium
     gh
     gimp-with-plugins
     gnumake
@@ -36,6 +33,13 @@
     go
     synology-drive-client
     xfce.xfconf
+
+    # Browsers, gee, I sure have lots
+    qutebrowser
+    librewolf
+    firefox
+    google-chrome
+    ungoogled-chromium
 
     # Desktop
     clipman

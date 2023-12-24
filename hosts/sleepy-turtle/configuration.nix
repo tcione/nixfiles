@@ -21,6 +21,7 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
