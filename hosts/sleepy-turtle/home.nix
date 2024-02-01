@@ -33,8 +33,6 @@
     go
     synology-drive-client
     xfce.xfconf
-    wezterm
-    thunderbird
 
     # Browsers, gee, I sure have lots
     qutebrowser
