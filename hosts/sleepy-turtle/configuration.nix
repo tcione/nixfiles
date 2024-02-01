@@ -48,6 +48,16 @@ in
     wireless.iwd.settings.Network.EnableIPv6 = false;
   };
 
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = ["1.1.1.1" "1.0.0.1" "8.8.8.8"];
+    extraConfig = ''
+      DNSOverTLS=yes
+    '';
+  };
+
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.utf8";
   i18n.extraLocaleSettings = {
