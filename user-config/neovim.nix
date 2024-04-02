@@ -15,7 +15,6 @@
       rubyPackages.solargraph
       shellcheck
       rust-analyzer
-      rnix-lsp
       nil
       gnumake
       clang-tools
@@ -150,7 +149,6 @@
             on_attach = on_lsp_attach,
             capabilities = capabilities,
           })
-          nvim_lsp.rnix.setup{on_attach=on_attach}
           nvim_lsp.clangd.setup({
             on_attach = on_lsp_attach,
             capabilities = capabilities,

@@ -14,7 +14,6 @@
     discord
     fd
     gh
-    gimp-with-plugins
     gnumake
     lm_sensors
     neofetch
