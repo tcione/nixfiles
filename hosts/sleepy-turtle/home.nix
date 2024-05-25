@@ -3,7 +3,7 @@
 {
   home.username = "tortoise";
   home.homeDirectory = "/home/tortoise";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
